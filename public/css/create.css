@@ -1,0 +1,128 @@
+#file_inputs label {
+	cursor: pointer;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	-webkit-justify-content: center;
+	align-items: center;
+	-webkit-align-items: center;
+	width:  calc(6vw + 80px);
+	height:  calc(6vw + 80px);
+
+}
+#file_inputs label img {
+	max-width: calc(6vw + 80px);
+	max-height: calc(6vw + 80px);
+	height: auto;
+	width: auto;
+}
+#file_inputs input[type=file]{
+	display: none;
+}
+.button_remove {
+	width: calc(1vw + 10px);
+	height: calc(1vw + 10px); 
+	min-width: calc(1.2vw + 12px);
+	min-height: calc(1.2vw + 12px); 
+	background-image: url(../img/x_red.svg);
+	background-size: 60%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	background-color: rgba(255,255,255,0.3);
+	border: solid calc(1px + 0.1vw) red;
+	cursor: pointer;
+}
+.pricesTable .button_remove{
+	width: calc(0.5vw + 10px);
+	height: calc(0.5vw + 10px); 
+	min-width: calc(0.6vw + 12px);
+	min-height: calc(0.6vw + 12px); 
+}
+.button_add{
+	min-width: calc(1.2vw + 12px);
+	width: calc(1.2vw + 12px);
+	min-height: calc(1.2vw + 12px); 
+	height: calc(1.2vw + 12px); 
+	background-image: url(../img/add_green.svg);
+	background-size: 75%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	background-color: rgba(255,255,255,0.3);
+	border: solid calc(1px + 0.1vw) #52B949;
+	cursor: pointer;
+
+}
+#price_range .price_create .input{
+	display: block;
+	box-sizing: border-box;
+	padding: 3px 0;
+	margin-right: 10px;
+
+}
+.price_create .input label {
+	display: block;
+	margin: 0 0 0 0;
+}
+.price_create .input input, .price_create .input select {
+	/*width: 100%;*/
+	position: relative;
+	display: block;
+
+}
+.input .input_pic label{
+	overflow: hidden;
+	border-radius: calc(3px + 0.2vw);
+	margin: 0 0 0 0;
+}
+.input_pic {
+	margin: calc(5px + 0.3vw);
+	border-radius: calc(3px + 0.2vw);
+	background-color: rgba(255,255,255,0.4);
+	padding: calc(3px + 0.2vw);
+	position: relative; 
+}
+.input_pic .button_remove {
+	position: absolute;
+	top: calc(4px + 0.3vw);
+	right: calc(4px + 0.3vw);
+}
+.price_create {
+	align-items: center;
+	-webkit-align-items: center;
+}
+.pricesTable {
+	padding-bottom: 10px;
+}
+.pricesTable th, .pricesTable tr {
+	min-width: 60px;
+
+}
+#weekendTable, #weekendPriceSelect{
+	display: none;
+}
+#post_add .input,#post_edit .input {
+	margin: 10px 0;
+	position: relative;
+
+}
+#post_add .label,#post_edit .label {
+	min-width: calc(60px + 3vw);
+}
+.price_create label{
+	position: absolute;
+	bottom: calc(100% - 3px);
+}
+#split {
+	margin: 0;
+	padding: 0;
+}
+#split input{
+}
+#split_wrap{
+	
+	margin: 0 0 10px 0;
+	/*margin: 0;*/
+	/*padding: 0;*/
+}

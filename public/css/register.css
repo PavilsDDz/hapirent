@@ -1,0 +1,12 @@
+.regForm{
+	display: none;
+}
+.button1 {
+	opacity: 0.6;
+}
+.button1.active{
+	opacity: 1;
+}
+.card-body {
+	height: calc(10vw + 200px);
+}
