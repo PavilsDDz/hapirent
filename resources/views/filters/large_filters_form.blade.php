@@ -84,6 +84,7 @@
                 inputs.lng = document.getElementById('lng').value
                 inputs.radius = document.getElementById('radius').value
                 inputs.page = 1
+                inputs.perPage = perPage
                // inputs.search = search
 
                 postRequest(inputs);

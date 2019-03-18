@@ -45,7 +45,6 @@ function postRequest(params=[]){
 	loadingDiv.appendChild(loadingImg)
 	document.getElementById('posts_conatainer').appendChild(loadingDiv)
 
-
 	$.ajax({
 		type: "POST",
 		url: base_url+"/quer_posts",

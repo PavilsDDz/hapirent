@@ -53,11 +53,12 @@
             password:{
                 required:true,
                 minlength: 8,
-            }
-            password_again: {
-              equalTo: "#password"
+            },
+            password_confirmation:{
+                equalTo: '#private_reg .password_confirmation'
             }
         }
+
         var messages = {
             name: {
                 required: "Please enter your name",
@@ -67,22 +68,52 @@
                 required: "Please add your email",
                 email: "Please write valid email",
             },
+            password:{
+                required: "Password is required",
+                minlength: jQuery.validator.format("At least {0} characters required!")
+            },
+            password_again: {
+              equalTo: "Pasword must match"
+            }
         }
 
             $(function(){
                 $("#private_reg").validate({
                     ignore: "",
                     rules: rules,
-                    messages: {
-                        name: {
-                          required: "Please enter your name",
-                          minlength: jQuery.validator.format("At least {0} characters required!")
-                        },
-                        email:{
-                            required: "Please add your email",
-                            email: "Please write valid email",
-                        },
+                    messages: messages,
+                    
+                    onfocusout: function(that){
+                        $(that).valid()
                     },
+                    onclick: function(that){
+                        $(that).valid()
+                    },
+
+                    submitHandler: function() {},
+                    wrapper: "div",
+                    ignore: ".ignore",
+                    
+
+                })
+
+                rules['regNumber']={
+                    required:true,
+                    digits:true,
+                }
+                rules['password_confirmation']={
+                     equalTo: '#company_reg .password_confirmation'
+                }
+                messages['regNumber']={
+                    required: 'Please enter registration number',
+                    digits: "Registration number mus contain only digits"
+                }
+
+                $("#company_reg").validate({
+                    ignore: "",
+                    rules: rules,
+                    messages: messages,
+                    
                     onfocusout: function(that){
                         $(that).valid()
                     },
@@ -98,6 +129,13 @@
                 })
             })
 
+            document.getElementById('company_submit').onclick = function(){
+                console.log($('#company_reg').valid())
+                if($('#company_reg').valid()){
+                    document.getElementById('company_reg').submit()
+                    // $('#post_add').submit()
+                }
+            }
             document.getElementById('private_submit').onclick = function(){
                 console.log($('#private_reg').valid())
                 if($('#private_reg').valid()){
@@ -105,6 +143,7 @@
                     // $('#post_add').submit()
                 }
             }
+            
     </script>
 
 @endsection()
@@ -164,7 +203,7 @@
                             <label for="private_password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="private_password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                <input id="private_password" type="password"  class="password form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
@@ -178,7 +217,7 @@
                             <label for="private_password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="private_password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="private_password-confirm" type="password" class="password_confirmation" name="password_confirmation" required>
                             </div>
                         </div>
 
@@ -238,7 +277,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" class="password" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
@@ -258,7 +297,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="button green marginV5">
+                                <button type="submit" id="company_submit" class="button green marginV5">
                                     {{ __('Register') }}
                                 </button>
                             </div>

@@ -196,22 +196,7 @@ class PostsController extends Controller
        //return dd($request);
         $type = null;
         switch ($request->type) {
-
-            case 'snow':
-                $type = 0;
-            break;
-
-            case 'water':
-                $type = 1;
-            break;
-            
-            case 'ground':
-                $type = 2;
-            break;
-
-            case 'air':
-                $type = 3;
-            break;
+ 
             
             default:
                 $type = null;
@@ -337,8 +322,9 @@ class PostsController extends Controller
         if ($request->view == 'map') {
             $posts = $posts->get();
         }else{
-            $page = isset($request->page) ? $request->page : 1;  
-            $posts = $posts->paginate(5, ['*'], 'page', $page);
+            $page = isset($request->page) ? $request->page : 1;
+            $perPage = isset($request->perPage) ? $request->perPage : 25;
+            $posts = $posts->paginate($perPage, ['*'], 'page', $page);
             
         }
 

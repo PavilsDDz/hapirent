@@ -42,7 +42,16 @@
 		<div class="" id="DispalyMapWrap">
 			<div id="DispalyMap" style=""></div>
 		</div>
-		<div id="pageination"></div>
+		<div class="flex">
+			<div id="pageination"></div>
+			<div>
+				<select name="per_page" id="per_page" onchange="inputs['perPage'] = this.value; postRequest(inputs)">
+					<option value="25">25</option>
+					<option value="50">50</option>
+					<option value="75">75</option>
+				</select>
+			</div>
+		</div>
 		<div id="posts_conatainer">
 
 		</div>

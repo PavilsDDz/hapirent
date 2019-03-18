@@ -27,7 +27,7 @@ CLASSES
 	padding: 0 calc(15px + 1vw);
 	max-width: 1300px;
 }
-.error input, .error select {
+input.error , select.error  {
 	color: #333;
 	font-weight: 400;
 }
@@ -119,6 +119,7 @@ h3,p {
 }
 #pageination{
 	text-align: center;
+	margin: 0 auto;
 }
 #pageination .prev, #pageination .next {
 	padding: 10px;
