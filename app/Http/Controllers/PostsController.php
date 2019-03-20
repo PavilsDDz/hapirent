@@ -196,7 +196,22 @@ class PostsController extends Controller
        //return dd($request);
         $type = null;
         switch ($request->type) {
- 
+            
+            case 'snow':
+                $type = 0;
+            break;
+
+            case 'water':
+                $type = 1;
+            break;
+            
+            case 'ground':
+                $type = 2;
+            break;
+
+            case 'air':
+                $type = 3;
+            break;
             
             default:
                 $type = null;
